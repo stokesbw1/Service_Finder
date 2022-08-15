@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Service Provider</string>
+
+    // Splash Screen Title List
+    <string-array name="FIRST_TITLE_LIST">
+        <item>Want to hire someone</item>
+        <item>Find services right</item>
+        <item>Discover the best</item>
+    </string-array>
+
+    // Splash Screen Title List
+    <string-array name="SPLASH_DESC">
+        <item>Description 1</item>
+        <item>Description 2</item>
+        <item>Description 3</item>
+    </string-array>
 </resources>
