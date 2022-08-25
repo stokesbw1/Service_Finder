@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Service Provider</string>
+
+    // Splash Screen Title First Line List
+    <string-array name="SPLASH_TITLE_FIRST_LINE_LIST">
+        <item>Want to hire someone ?</item>
+        <item>Find services right   </item>
+        <item>Discover the best     </item>
+    </string-array>
+
+    // Splash Screen Title Second Line List
+    <string-array name="SPLASH_TITLE_SECOND_LINE_LIST">
+        <item>we\'re here for you</item>
+        <item>away easily</item>
+        <item>services around you</item>
+    </string-array>
+
+    // Splash screen description list
+    <string name="SPLASH_DESC">
+        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstr
+    </string>
+
 </resources>
