@@ -3,28 +3,38 @@ package com.example.serviceprovider
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.serviceprovider.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
-import java.util.*
+import javax.inject.Inject
 import kotlin.collections.ArrayList
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var binding: ActivityMainBinding // <----
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
-
+        setUpViewPager()
     }
 
-fun setUpViewPager(){
-      val titlesList = ArrayList<String>(listOf(*resources.getStringArray(R.array.FIRST_TITLE_LIST)))
-      val descList = ArrayList<String>(listOf(*resources.getStringArray(R.array.SPLASH_DESC)))
+    private fun setUpViewPager(){
+        val titlesFirstLineList = ArrayList<String>(listOf(*resources.getStringArray(R.array.SPLASH_TITLE_FIRST_LINE_LIST)))
+        val titlesSecondLineList = ArrayList<String>(listOf(*resources.getStringArray(R.array.SPLASH_TITLE_SECOND_LINE_LIST)))
+        val descText = getString(R.string.SPLASH_DESC)
 
-    view_pager2.adapter=ViewPagerAdapter(titlesList, descList, listOf(R.mipmap.ic_launcher_round,R.mipmap.ic_launcher_round,R.mipmap.ic_launcher_round))
-    view_pager2.orientation =ViewPager2.ORIENTATION_HORIZONTAL
+        binding.viewPager2.adapter=ViewPagerAdapter(
+            titlesFirstLineList,
+            titlesSecondLineList,
+            descText,
+           )
+        binding.viewPager2.orientation =ViewPager2.ORIENTATION_HORIZONTAL
 
-    var  indicator:CircleIndicator3 = findViewById<CircleIndicator3>(R.id.indicator)
-    indicator.setViewPager(view_pager2)
-}
+        var  indicator:CircleIndicator3 = findViewById<CircleIndicator3>(R.id.indicator)
+        indicator.setViewPager(binding.viewPager2)
+    }
 }

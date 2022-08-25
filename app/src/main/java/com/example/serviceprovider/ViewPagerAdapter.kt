@@ -7,36 +7,45 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.serviceprovider.databinding.ItemPageBinding
 
-class ViewPagerAdapter(private var title:List<String>,
-private  var details: List<String>,
-private  var images: List<Int>) :RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>(){
 
-    inner class Pager2ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val  itemTitle: TextView = itemView.findViewById(R.id.tvTitle)
-        val  itemDetails: TextView = itemView.findViewById(R.id.tvAbout)
-        val  itemImage: ImageView = itemView.findViewById(R.id.ivImage)
+class ViewPagerAdapter(
+    private var titleFirstLine:List<String>,
+    private var titleSecondLine:List<String>,
+    private  var desc: String) :RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>(){
 
-        init {
-            itemImage.setOnClickListener {v: View->
-                val position:Int =adapterPosition
-                Toast.makeText(itemView.context, "You clicked on item #${position + 1}", Toast.LENGTH_SHORT).show()
-            }
-        }
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerHolder {
+        val binding = ItemPageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewPagerHolder(binding)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerAdapter.Pager2ViewHolder {
-        return  Pager2ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_page, parent, false))
-    }
+    override fun onBindViewHolder(holder: ViewPagerHolder, position: Int) {
+        val firstLine = titleFirstLine[position]
+        val secondLine = titleSecondLine[position]
+        val desc = desc
+        holder.bind(firstLine, secondLine, desc)
 
-    override fun onBindViewHolder(holder: ViewPagerAdapter.Pager2ViewHolder, position: Int) {
-        holder.itemTitle.text = title[position]
-        holder.itemDetails.text = title[position]
-        holder.itemImage.setImageResource(images[position])
     }
 
     override fun getItemCount(): Int {
-        return  title.size
+        return  titleFirstLine.size
     }
 
-}
+    class ViewPagerHolder(private var itemPageBinding: ItemPageBinding) :
+        RecyclerView.ViewHolder(itemPageBinding.root) {
+        fun bind(firstLine: String, secondLine: String, desc: String) {
+
+            itemPageBinding.tvSplashTitleFirstLine.text = firstLine
+            itemPageBinding.tvSplashTitleSecondLine.text = firstLine
+            itemPageBinding.tvSplashDesc.text = desc
+            itemPageBinding.ivImage.setImageResource(R.mipmap.ic_launcher_round)
+
+            itemPageBinding.ivImage.setOnClickListener {v: View ->
+                val position:Int =adapterPosition
+                Toast.makeText(itemView.context, "You clicked on item #${position + 1}", Toast.LENGTH_SHORT).show()
+        }
+    }
+}}
