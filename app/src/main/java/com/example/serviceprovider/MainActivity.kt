@@ -2,6 +2,7 @@ package com.example.serviceprovider
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.serviceprovider.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -13,7 +14,10 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var binding: ActivityMainBinding // <----
+    lateinit var binding: ActivityMainBinding
+
+    @Inject
+    lateinit var  viewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,18 +27,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpViewPager(){
-        val titlesFirstLineList = ArrayList<String>(listOf(*resources.getStringArray(R.array.SPLASH_TITLE_FIRST_LINE_LIST)))
-        val titlesSecondLineList = ArrayList<String>(listOf(*resources.getStringArray(R.array.SPLASH_TITLE_SECOND_LINE_LIST)))
-        val descText = getString(R.string.SPLASH_DESC)
-
-        binding.viewPager2.adapter=ViewPagerAdapter(
-            titlesFirstLineList,
-            titlesSecondLineList,
-            descText,
-           )
-        binding.viewPager2.orientation =ViewPager2.ORIENTATION_HORIZONTAL
-
-        var  indicator:CircleIndicator3 = findViewById<CircleIndicator3>(R.id.indicator)
-        indicator.setViewPager(binding.viewPager2)
+        binding.viewPager2.adapter = viewPagerAdapter
+        binding.viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.indicator.setViewPager(binding.viewPager2)
     }
 }
