@@ -13,8 +13,7 @@ import com.example.serviceprovider.databinding.ItemPageBinding
 class ViewPagerAdapter(
     private var titleFirstLine:List<String>,
     private var titleSecondLine:List<String>,
-    private  var desc: String) :RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>(){
-
+    private  var desc: String) :RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerHolder {
@@ -31,7 +30,7 @@ class ViewPagerAdapter(
     }
 
     override fun getItemCount(): Int {
-        return  titleFirstLine.size
+        return titleFirstLine.size
     }
 
     class ViewPagerHolder(private var itemPageBinding: ItemPageBinding) :
@@ -39,13 +38,18 @@ class ViewPagerAdapter(
         fun bind(firstLine: String, secondLine: String, desc: String) {
 
             itemPageBinding.tvSplashTitleFirstLine.text = firstLine
-            itemPageBinding.tvSplashTitleSecondLine.text = firstLine
+            itemPageBinding.tvSplashTitleSecondLine.text = secondLine
             itemPageBinding.tvSplashDesc.text = desc
             itemPageBinding.ivImage.setImageResource(R.mipmap.ic_launcher_round)
 
-            itemPageBinding.ivImage.setOnClickListener {v: View ->
-                val position:Int =adapterPosition
-                Toast.makeText(itemView.context, "You clicked on item #${position + 1}", Toast.LENGTH_SHORT).show()
+            itemPageBinding.ivImage.setOnClickListener { v: View ->
+                val position: Int = adapterPosition
+                Toast.makeText(
+                    itemView.context,
+                    "You clicked on item #${position + 1}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
-}}
+}
