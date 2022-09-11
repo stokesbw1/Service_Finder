@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         {
             graph.setStartDestination(R.id.splashScreenFragment)
         } else {
-            graph.setStartDestination(R.id.loginFragment)
+            graph.setStartDestination(R.id.firstOptionScreenFragment)
         }
 
         val navController = navHostFragment.navController

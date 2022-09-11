@@ -45,7 +45,7 @@ class SplashScreenFragment : Fragment() {
                 editor.putBoolean(Constants.FIRST_RUN_SPREFERENCES, true)
                 editor.apply()
 
-                findNavController().navigate(R.id.action_splashScreenFragment_to_loginFragment)
+                findNavController().navigate(R.id.action_splashScreenFragment_to_firstOptionScreenFragment)
             }
 
             binding.vpSplashPager.currentItem = binding.vpSplashPager.currentItem + 1
