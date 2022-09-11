@@ -1,11 +1,16 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Service Provider</string>
+    <string name="join_now">Join Now</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="join_with_account">Join us with your account and find the best services from all around the world</string>
+
 
     // Splash Screen Title First Line List
     <string-array name="SPLASH_TITLE_FIRST_LINE_LIST">
         <item>Want to hire someone ?</item>
-        <item>Find services right   </item>
-        <item>Discover the best     </item>
+        <item>Find services right</item>
+        <item>Discover the best</item>
     </string-array>
 
     // Splash Screen Title Second Line List
@@ -19,7 +24,9 @@
     <string name="SPLASH_DESC">
         In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstr
     </string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="optionsScreenBackground">Background</string>
+    <string name="asGuest">Continue as a guest</string>
+    <string name="explore_better">Explore better \nsolutions with us</string>
 
 </resources>
