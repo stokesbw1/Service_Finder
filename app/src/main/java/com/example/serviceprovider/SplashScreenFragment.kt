@@ -51,7 +51,7 @@ class SplashScreenFragment : Fragment() {
             binding.vpSplashPager.currentItem = binding.vpSplashPager.currentItem + 1
         }
 
-        binding.btnSplashPrev.setOnClickListener{
+        binding.btnSplashSkip.setOnClickListener{
             binding.vpSplashPager.currentItem = binding.vpSplashPager.currentItem - 1;
         }
         setUpViewPager()
