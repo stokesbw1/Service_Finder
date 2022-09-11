@@ -5,4 +5,5 @@ object Constants {
     const val ARRAY_LIST_STRING2 = "splash_second_title"
 
     const val STRING1 = "splash_desc"
+    const val FIRST_RUN_SPREFERENCES = "firstRun"
 }
