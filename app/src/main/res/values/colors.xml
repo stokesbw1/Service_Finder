@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#10324A</color>
+    <color name="primary_with_opacity">#9F10324A</color>
     <color name="secondary">#FFFFFF</color>
     <color name="blue">#1C87D3</color>
     <color name="blue_accent">#BAE2FF</color>
     <color name="grey_blue">#96B2C6</color>
     <color name="dark_grey">#E1E4E5</color>
+    <color name="dark_grey_with_opacity">#7FE1E4E5</color>
     <color name="light_grey">#EEF2F3</color>
 
 <!--    // Text Colors-->

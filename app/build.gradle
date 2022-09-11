@@ -39,6 +39,9 @@ android {
 }
 
 dependencies {
+    //Play Services Auth
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
+
     //Fragment
     def fragment_version = "1.5.2"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
