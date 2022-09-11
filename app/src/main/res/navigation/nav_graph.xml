@@ -11,12 +11,26 @@
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
-            android:id="@+id/action_splashScreenFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_splashScreenFragment_to_firstOptionScreenFragment"
+            app:destination="@id/firstOptionScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.serviceprovider.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/firstOptionScreenFragment"
+        android:name="com.example.serviceprovider.FirstOptionScreenFragment"
+        android:label="fragment_first_option_screen"
+        tools:layout="@layout/fragment_first_option_screen" >
+        <action
+            android:id="@+id/action_firstOptionScreenFragment_to_secondOptionsScreenFragment"
+            app:destination="@id/secondOptionsScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondOptionsScreenFragment"
+        android:name="com.example.serviceprovider.SecondOptionsScreenFragment"
+        android:label="fragment_second_options_screen"
+        tools:layout="@layout/fragment_second_options_screen" />
 </navigation>

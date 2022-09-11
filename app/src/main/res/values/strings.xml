@@ -28,5 +28,9 @@
     <string name="optionsScreenBackground">Background</string>
     <string name="asGuest">Continue as a guest</string>
     <string name="explore_better">Explore better \nsolutions with us</string>
+    <string name="color_your_life">Let\'s color your life \neveryday with us</string>
+    <string name="find_services_or_workers">If you want to find services or workers to hire, go with find services, or if you\'re a worker or service provider, go with find jobs.</string>
+    <string name="find_services">Find services</string>
+    <string name="find_jobs">Find jobs</string>
 
 </resources>
