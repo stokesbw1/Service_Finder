@@ -32,7 +32,7 @@ class FirstOptionScreenFragment : Fragment() {
         }
 
         binding.btnJoinNow.setOnClickListener{
-            findNavController().navigate(R.id.action_firstOptionScreenFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_firstOptionScreenFragment_to_registerFragment)
         }
     }
 }

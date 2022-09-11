@@ -31,5 +31,13 @@ class LoginFragment : Fragment() {
 
         val textView =  binding.signInButton.getChildAt(0) as TextView;
         textView.text = resources.getString(R.string.signin_with_google);
+
+        binding.btnCreateAccount.setOnClickListener{
+            findNavController().navigateUp()
+        }
+
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_secondOptionsScreenFragment)
+        }
     }
 }
