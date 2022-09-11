@@ -1,43 +1,35 @@
 package com.example.serviceprovider
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
-import com.example.serviceprovider.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
-import me.relex.circleindicator.CircleIndicator3
 import javax.inject.Inject
-import kotlin.collections.ArrayList
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    @Inject
-    lateinit var binding: ActivityMainBinding
-
-    @Inject
-    lateinit var  viewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>
+    @Inject lateinit var settings: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        setUpViewPager()
+        val firstRun = settings.getBoolean(Constants.FIRST_RUN_SPREFERENCES, false)
 
-        binding.btnSplashNext.setOnClickListener{
-            binding.vpSplashPager.currentItem = binding.vpSplashPager.currentItem + 1
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+        val inflater = navHostFragment.navController.navInflater
+        val graph = inflater.inflate(R.navigation.nav_graph)
+
+        if (!firstRun)
+        {
+            graph.setStartDestination(R.id.splashScreenFragment)
+        } else {
+            graph.setStartDestination(R.id.loginFragment)
         }
 
-        binding.btnSplashPrev.setOnClickListener{
-            binding.vpSplashPager.currentItem = binding.vpSplashPager.currentItem - 1;
-        }
-    }
-
-    private fun setUpViewPager(){
-        binding.vpSplashPager.adapter = viewPagerAdapter
-        binding.vpSplashPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.inSplashDots.setViewPager(binding.vpSplashPager)
+        val navController = navHostFragment.navController
+        navController.setGraph(graph, intent.extras)
     }
 }

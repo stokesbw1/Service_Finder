@@ -1,11 +1,13 @@
 package com.example.serviceprovider.di
 
 import android.app.Application
+import android.content.SharedPreferences
 import com.example.serviceprovider.Constants
 import com.example.serviceprovider.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Named
 import javax.inject.Singleton
@@ -35,5 +37,11 @@ object AppModule {
     @Named(Constants.STRING1)
     fun provideSplashDecText(context: Application): String {
         return context.resources.getString(R.string.SPLASH_DESC)
+    }
+
+    @Provides
+    @Singleton
+    fun providesSharedPreferences(context: Application) : SharedPreferences {
+        return context.getSharedPreferences("prefs", 0);
     }
 }

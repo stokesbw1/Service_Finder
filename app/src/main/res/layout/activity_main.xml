@@ -6,52 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-
-    <me.relex.circleindicator.CircleIndicator3
-        android:id="@+id/inSplashDots"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:ci_drawable="@drawable/selected_circleindicator_round"
-        app:ci_drawable_unselected="@drawable/unselected_circleindicator_round"
-        app:layout_constraintBottom_toTopOf="@+id/btnSplashNext"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vpSplashPager"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/inSplashDots"
-        app:layout_constraintTop_toTopOf="parent">
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true">
 
-    </androidx.viewpager2.widget.ViewPager2>
-
-    <Button
-        android:id="@+id/btnSplashNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="45dp"
-        android:backgroundTint="@color/primary"
-        android:text="Next"
-        android:textColor="@color/secondary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/btnSplashPrev"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
-        android:text="Skip"
-        android:textColor="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+    </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.FragmentComponent
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -34,7 +35,7 @@ object MainActivityModule {
         @Named(Constants.ARRAY_LIST_STRING1) titlesFirstLineList: ArrayList<String>,
         @Named(Constants.ARRAY_LIST_STRING2) titlesSecondLineList: ArrayList<String>,
         @Named(Constants.STRING1) descText: String,
-    ) : RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>{
+    ) : ViewPagerAdapter{
         return ViewPagerAdapter(
             titlesFirstLineList,
             titlesSecondLineList,
