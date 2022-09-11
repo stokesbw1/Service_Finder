@@ -20,4 +20,33 @@
         <item name="android:textSize">30sp</item>
     </style>
 
+    <style name="Headline_text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Sp_Edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">43dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:backgroundTint">@color/grey_blue</item>
+        <item name="android:textColorHint">@color/primary_with_opacity</item>
+        <item name="android:textColor">@color/primary_with_opacity</item>
+    </style>
+
+    <style name="Account_Btn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:background">@drawable/account_screens_btn</item>
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:text">@string/login</item>
+        <item name="android:textColor">@color/secondary</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>

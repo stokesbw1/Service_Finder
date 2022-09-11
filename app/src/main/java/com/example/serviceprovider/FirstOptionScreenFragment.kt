@@ -27,8 +27,12 @@ class FirstOptionScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnJoinNow.setOnClickListener{
+        binding.btnAsGuest.setOnClickListener{
             findNavController().navigate(R.id.action_firstOptionScreenFragment_to_secondOptionsScreenFragment)
+        }
+
+        binding.btnJoinNow.setOnClickListener{
+            findNavController().navigate(R.id.action_firstOptionScreenFragment_to_loginFragment)
         }
     }
 }
